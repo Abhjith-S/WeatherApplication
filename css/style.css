@@ -1,0 +1,39 @@
+.header{
+    justify-content: center;
+    display: flex;
+    background-color: blue;
+    height: 72px;
+    padding-top: 10px;
+}
+.country{
+    margin-top: 10px;
+    background: rgb(215,214,218);
+    background: linear-gradient(90deg, rgba(215,214,218,1) 0%, rgba(64,64,195,1) 35%, rgba(0,212,255,1) 100%); 
+    height: 40px;
+    border-radius: 5px;
+    box-shadow: 2px 2px gray;
+    justify-content: center;
+    padding-top: 7px;
+    padding-left: 14px;
+}
+.maincontainer{
+    display: flex;
+    flex-direction: row;
+}
+.leftsub{
+    display: flex;
+    flex-direction: row;
+} 
+.stateCon{
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+.state{
+    margin: 2px;
+    height: 60px;
+    border: 1px solid black;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+}

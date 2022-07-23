@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"  ng-app="weatherApplication">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script  src="angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.30/angular-ui-router.min.js" integrity="sha512-HdDqpFK+5KwK5gZTuViiNt6aw/dBc3d0pUArax73z0fYN8UXiSozGNTo3MFx4pwbBPldf5gaMUq/EqposBQyWQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Weather Application</title>
+</head>
+<body>
+    <div ng-controller="WeatherAppController">
+        <h1 class="header col-lg-12 col-md-12 col-sm-12 col-xs-12">Find Your Weather</h1> 
+            <div class="maincontainer col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                <div class="sidebar  col-lg-2 col-md-2 col-sm-2 col-xs-2">
+                        <div class="country" ng-click="selectCountry('India')">India</div>
+                        <div class="country" ng-click="selectCountry('America')">America</div>
+                        <div class="country" ng-click="selectCountry('UK')">UK</div>
+                        <div class="country" ng-click="selectCountry('UAE')">UAE</div>
+                        <div class="country" ng-click="selectCountry('Germany')">Germany</div>
+                </div>
+                <div class="weatherStatus col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                    <div class=" stateCon col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                        <div ng-hide = 'error'class = 'state col-lg-2 col-md-2 col-sm-2 col-xs-2' ng-repeat = 'item in TempList track by $index'>
+                            <span>{{item.item[0]}}</span><span>{{item.item[1]}}</span>
+                            <img src="images/icons8-winter-48.png" alt =''/>
+                        </div>
+                        <div ng-show="error">We are currently facing some issue<br>Please Try again later</div>
+                    </div>
+                </div>
+            </div>
+    </div>
+<script type="text/javascript" src="app.module.js"></script>
+<script type="text/javascript" src="controller.js"></script> 
+<script type="text/javascript" src="services.js"></script> 
+</body>
+</html>
