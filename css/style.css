@@ -3,10 +3,11 @@
     display: flex;
     align-items: center;
     background-color: #86abe6;
-    height: 72px;
+    height: 76px;
     padding-top: 10px;
     position: sticky;
     top: 0;
+    filter: drop-shadow(5px 5px 4px #4a4aa1);
     z-index: 1;
 }
 .country{
