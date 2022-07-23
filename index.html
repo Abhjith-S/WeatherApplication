@@ -18,7 +18,7 @@
                 <div class="sidebar  col-lg-2 col-md-2 col-sm-2 col-xs-2">
                         <div class="country" ng-click="selectCountry('India')">India</div>
                         <div class="country" ng-click="selectCountry('America')">America</div>
-                        <div class="country" ng-click="selectCountry('UK')">UK</div>
+                        <div class="country" ng-click="getcity('India')">UK</div>
                         <div class="country" ng-click="selectCountry('UAE')">UAE</div>
                         <div class="country" ng-click="selectCountry('Germany')">Germany</div>
                 </div>
@@ -26,7 +26,7 @@
                     <div class=" stateCon col-lg-12 col-md-12 col-sm-12 col-xs-12">
                         <div ng-hide = 'error'class = 'state col-lg-2 col-md-2 col-sm-2 col-xs-2' ng-repeat = 'item in TempList track by $index'>
                             <span>{{item.item[0]}}</span><span>{{item.item[1]}}</span>
-                            <img src="images/icons8-winter-48.png" alt =''/>
+                            <!-- <img src="images/icons8-winter-48.png" alt =''/> -->
                         </div>
                         <div ng-show="error">We are currently facing some issue<br>Please Try again later</div>
                     </div>
