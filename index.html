@@ -13,20 +13,24 @@
 </head>
 <body>
     <div ng-controller="WeatherAppController">
-        <h1 class="header col-lg-12 col-md-12 col-sm-12 col-xs-12">Find Your Weather</h1> 
+        <div class="header col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <span class="heading">Weather Application</span>
+        </div>
             <div class="maincontainer col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="sidebar  col-lg-2 col-md-2 col-sm-2 col-xs-2">
-                        <div class="country" ng-click="selectCountry('India')">India</div>
-                        <div class="country" ng-click="selectCountry('America')">America</div>
-                        <div class="country" ng-click="getcity('India')">UK</div>
-                        <div class="country" ng-click="selectCountry('UAE')">UAE</div>
-                        <div class="country" ng-click="selectCountry('Germany')">Germany</div>
+                        <div class="country" ng-class="SelectCountry === 'India' ? 'tab-selected' : tab-unselected" ng-click="selectCountry('India')">India</div>
+                        <div class="country" ng-class="SelectCountry === 'America' ? 'tab-selected' : tab-unselected" ng-click="selectCountry('America')">America</div>
+                        <div class="country" ng-class="SelectCountry === 'UK' ? 'tab-selected' : tab-unselected" ng-click="selectCountry('UK')">UK</div>
+                        <div class="country" ng-class="SelectCountry === 'France' ? 'tab-selected' : tab-unselected" ng-click="selectCountry('France')">France</div>
+                        <div class="country" ng-class="SelectCountry === 'Germany' ? 'tab-selected' : tab-unselected" ng-click="selectCountry('Germany')">Germany</div>
                 </div>
-                <div class="weatherStatus col-lg-10 col-md-10 col-sm-10 col-xs-10">
-                    <div class=" stateCon col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                        <div ng-hide = 'error'class = 'state col-lg-2 col-md-2 col-sm-2 col-xs-2' ng-repeat = 'item in TempList track by $index'>
-                            <span>{{item.item[0]}}</span><span>{{item.item[1]}}</span>
-                            <!-- <img src="images/icons8-winter-48.png" alt =''/> -->
+                <div class="weatherStatus col-lg-11 col-md-11 col-sm-11 col-xs-11">
+                    <div class="texts" ng-show="SelectCountry != ''">Weather update of major cities in {{SelectCountry}}</div>
+                    <div class="texts texts-start" ng-show="SelectCountry == ''">Please select a country to see the weather updates of its major cities</div>
+                    <div class=" stateCon col-lg-10 col-md-10 col-sm-10 col-xs-10">
+                        <div ng-hide = 'error'class = 'state col-lg-3 col-md-3 col-sm-3 col-xs-3' ng-repeat = 'item in TempList track by $index'>
+                            <div class="display-col"><span class="city">{{item.item[0]}}</span><span>{{item.item[1]}}°c</span><span>{{item.item[3]}}</span></div>
+                            <img src="{{item.item[2]}}" alt ='no img'/>  
                         </div>
                         <div ng-show="error">We are currently facing some issue<br>Please Try again later</div>
                     </div>

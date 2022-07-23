@@ -22,11 +22,11 @@ angular.module('weatherApplication').controller('WeatherAppController',['$scope'
             console.log($scope.TempList)
         }
         //lists of major cities in each specified countries
-        var stateListIndia = ['Mumbai', 'Delhi','bengaluru','Hyderabad','Ahmedabad','Chennai','Kolkata','Kochi','Trivandrum', 'Pune', 'Surat', 'Lucknow','Ghaziabad', 'Vijayawada','Faridabad', 'Meerut','Navi Mumbai', 'Howrah', 'Coimbatore', 'Jodhpur', 'Madurai', 'Mysore', 'Gurgaon', 'Mangalore', 'Kozhikode','Agartala', 'Thrissur', 'Pondicherry' ]
+        var stateListIndia = ['Mumbai', 'Delhi','bengaluru','Hyderabad','Ahmedabad','Chennai','Kolkata','Kochi','Trivandrum', 'Pune', 'Surat', 'Lucknow','Ghaziabad', 'Vijayawada','Faridabad', 'Meerut','Navi Mumbai', 'Howrah', 'Coimbatore', 'Jodhpur', 'Madurai', 'Mysore', 'Gurgaon', 'Mangalore', 'Kozhikode','Agartala', 'Thrissur', 'Pondicherry','Palakkad', 'Thrissur' ]
         var stateListUSA = ['New York City', 'Los Angeles','Chicago','Houston','Phoenix','Philadelphia','San Antonio','San Diego','Dallas','San Jose','Austin','Jacksonville','Fort Worth','Columbus','	Charlotte','Indianapolis','San Francisco', 'Seattle','Denver','Washington','Nashville','Oklahoma City','Boston','El Paso','Portland','Las Vegas','Memphis','Detroit','Baltimore','Milwaukee']
-        var stateListUK = ['London','Birmingham','Leeds','Glasgow','Sheffield','Bradford','Liverpool','Edinburgh','Manchester','Bristol', 'Kirklees','Fife','Wirral','North Lanarkshire','Wakefield','Cardiff','Dudley','Wigan','South Lanarkshire','Coventry','Belfast','Leicester','Sunderland','Sandwell','Doncaster','Stockport','Sefton','Nottingham']
+        var stateListUK = ['London','Birmingham','Leeds','Glasgow','Sheffield','Bradford','Liverpool','Edinburgh','Manchester','Bristol', 'Kirklees','Fife','Wirral','North Lanarkshire','Wakefield','Cardiff','Dudley','Wigan','South Lanarkshire','Coventry','Belfast','Leicester','Sunderland','Sandwell','Doncaster','Stockport','Sefton','Nottingham','wells','Wolverhampton']
         var statelistGermany = ['Berlin','Hamburg','Munich','Cologne','Frankfurt am Main','Stuttgart','Dortmund',' Essen','Leipzig','Bremen','Dresden','Hanover','Nuremberg','Duisburg','Bochum','Wuppertal','Bielefeld','Bonn','Karlsruhe','Mannheim','Augsburg','Wiesbaden','Gelsenkirchen','Braunschweig','Chemnitz','Kiel','Aachen']
-        var statelistFrance = []
+        var statelistFrance = ['Paris','Marseille','Lyon','Toulouse','Nice','Nantes','Strasbourg','Montpellier','Bordeaux','Lille','Rennes','Reims','Toulon','Grenoble','Dijon','Nîmes','Angers','Villeurbanne','Limoges','Tours','Amiens','Perpignan','Metz','Besançon','Mulhouse','Caen','Argenteuil','Roubaix','Avignon','Dunkirk','Courbevoie','Poitiers','Pau']
         console.log(stateListUSA.length)
         
         
@@ -48,8 +48,8 @@ angular.module('weatherApplication').controller('WeatherAppController',['$scope'
                 $scope.stateList =  statelistGermany;
                 return $scope.stateList
             }
-            else if($scope.SelectCountry == 'UAE'){
-                $scope.stateList =  statelistUAE;
+            else if($scope.SelectCountry == 'France'){
+                $scope.stateList =  statelistFrance;
                 return $scope.stateList
             }
         }
@@ -61,8 +61,11 @@ angular.module('weatherApplication').controller('WeatherAppController',['$scope'
                 WeatherAppService.getWeather(city).then(function(response){
                 $scope.weatherData = response
                     try{
-                        // console.log($scope.weatherData)
-                        var Items = {item:[$scope.weatherData.name,$scope.weatherData.main.temp ]}
+                        
+                        var iconURL =  "http://openweathermap.org/img/wn/"+$scope.weatherData.weather[0].icon+"@2x.png"
+                        console.log(iconURL)
+                        // console.log($scope.weatherData) 
+                        var Items = {item:[$scope.weatherData.name,$scope.weatherData.main.temp, iconURL, $scope.weatherData.weather[0].main]}
                         console.log(Items)
                     // /console.log($scope.weatherData.data[0].city_name, $scope.weatherData.data[0].app_temp)
                         $scope.TempList.push(Items)

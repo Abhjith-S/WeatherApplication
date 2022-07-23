@@ -36,22 +36,6 @@ function($http, $q){
 
     }
 
-    //  function post(country) {
-    //         var BaseUrl = "https://countriesnow.space/api/v0.1/countries/cities"
-    //          return  new Promise((resolve, reject) => {
-    //           fetch(BaseUrl, {
-    //             method: 'POST',
-    //             headers: {
-    //               'Content-type': 'application/json'
-    //             },
-    //             body: JSON.stringify({'country':country})
-    //           })
-    //           .then(res => res.json())
-    //           .then(data => resolve(data))
-    //           .catch(err => reject(err));
-    //         });
-    // }
-
     async function  post(country) {
         var BaseUrl = "https://countriesnow.space/api/v0.1/countries/cities"
         const response = await fetch(BaseUrl, {

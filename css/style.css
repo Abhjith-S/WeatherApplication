@@ -1,20 +1,36 @@
 .header{
     justify-content: center;
     display: flex;
-    background-color: blue;
+    background-color: #86abe6;
     height: 72px;
     padding-top: 10px;
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 .country{
     margin-top: 10px;
-    background: rgb(215,214,218);
-    background: linear-gradient(90deg, rgba(215,214,218,1) 0%, rgba(64,64,195,1) 35%, rgba(0,212,255,1) 100%); 
-    height: 40px;
+    background: rgb(128, 106, 206);
+    height: 58px;
     border-radius: 5px;
     box-shadow: 2px 2px gray;
-    justify-content: center;
-    padding-top: 7px;
     padding-left: 14px;
+    display: flex;
+    font-size: 21px;
+    font-family: none;
+    color: ghostwhite;  
+    cursor: pointer;
+    align-items: center;
+    margin-bottom: 50px;
+}
+.sidebar{
+    margin-top: 30px;
+    position: fixed;
+    right: 30px;
+    z-index: 1;
+    border-left: 2px solid black;
+    height: 80%;
+
 }
 .maincontainer{
     display: flex;
@@ -28,12 +44,56 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
+    justify-content: space-between;
+    margin-left: 28px;
 }
 .state{
-    margin: 2px;
-    height: 60px;
-    border: 1px solid black;
+    margin: 14px;
+    height: 84px;
     border-radius: 5px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: #a29292;
+    color: #370606;
+    box-shadow: 3px 3px #a6a3a3;;
+}
+.display-col{
+    display: flex;
+    flex-direction: column;   
+}
+.heading{
+        font-size: 33px;
+        font-family: none;
+        color: ghostwhite;
+}
+.texts{
+    margin-left: 56px;
+    margin-top: 10px;
+    font-size: 20px;
+    color: #272760;
+    font-family: n;
+}
+.texts-start{
+    margin-left: 15% !important;
+    margin-top: 20% !important;
+}
+.tab-selected{
+    background-color: white !important;
+    color: black !important;
+    border-top: 1px solid gray;
+    border-right: 1px solid gray;
+    box-shadow: 2px 2px 2px 2px gray;
+}
+.tab-unselected{
+    background: rgb(128, 106, 206) !important; 
+    color: ghostwhite !important; 
+}
+.city{
+    color: ivory;
+    text-decoration: underline;
+}
+.country:hover{
+    transform: translate(2px, 2px);  
 }
