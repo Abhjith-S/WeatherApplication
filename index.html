@@ -14,7 +14,8 @@
 <body>
     <div ng-controller="WeatherAppController">
         <div class="header col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <span class="heading">Weather Application</span>
+            <img src="images/weather-news(1).png" alt="">
+            <span class="heading">Weather Updates</span>
         </div>
             <div class="maincontainer col-lg-12 col-md-12 col-sm-12 col-xs-12">
                 <div class="sidebar  col-lg-2 col-md-2 col-sm-2 col-xs-2">
@@ -32,7 +33,7 @@
                             <div class="display-col"><span class="city">{{item.item[0]}}</span><span>{{item.item[1]}}°c</span><span>{{item.item[3]}}</span></div>
                             <img src="{{item.item[2]}}" alt ='no img'/>  
                         </div>
-                        <div ng-show="error">We are currently facing some issue<br>Please Try again later</div>
+                        <div class = 'texts texts-start' ng-show="error">We are currently facing some issue<br>Please Try again later</div>
                     </div>
                 </div>
             </div>

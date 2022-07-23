@@ -9,7 +9,8 @@ angular.module('weatherApplication').controller('WeatherAppController',['$scope'
         }
         $scope.SelectCountry = ''
         $scope.stateList = []
-
+        
+        // main code 
         $scope.selectCountry = function(val){
             $scope.SelectCountry = val;
             array = $scope.SelectStateList()
@@ -21,6 +22,7 @@ angular.module('weatherApplication').controller('WeatherAppController',['$scope'
             });
             console.log($scope.TempList)
         }
+
         //lists of major cities in each specified countries
         var stateListIndia = ['Mumbai', 'Delhi','bengaluru','Hyderabad','Ahmedabad','Chennai','Kolkata','Kochi','Trivandrum', 'Pune', 'Surat', 'Lucknow','Ghaziabad', 'Vijayawada','Faridabad', 'Meerut','Navi Mumbai', 'Howrah', 'Coimbatore', 'Jodhpur', 'Madurai', 'Mysore', 'Gurgaon', 'Mangalore', 'Kozhikode','Agartala', 'Thrissur', 'Pondicherry','Palakkad', 'Thrissur' ]
         var stateListUSA = ['New York City', 'Los Angeles','Chicago','Houston','Phoenix','Philadelphia','San Antonio','San Diego','Dallas','San Jose','Austin','Jacksonville','Fort Worth','Columbus','	Charlotte','Indianapolis','San Francisco', 'Seattle','Denver','Washington','Nashville','Oklahoma City','Boston','El Paso','Portland','Las Vegas','Memphis','Detroit','Baltimore','Milwaukee']
@@ -30,7 +32,7 @@ angular.module('weatherApplication').controller('WeatherAppController',['$scope'
         console.log(stateListUSA.length)
         
         
-        
+        //Assigning cities according to the country selected
         $scope.SelectStateList = function(){
             if($scope.SelectCountry == 'India'){
                 $scope.stateList =  stateListIndia;
@@ -55,7 +57,6 @@ angular.module('weatherApplication').controller('WeatherAppController',['$scope'
         }
 
         //get weather data
-       
         $scope.getData = function(city){
             try{
                 WeatherAppService.getWeather(city).then(function(response){
@@ -63,10 +64,10 @@ angular.module('weatherApplication').controller('WeatherAppController',['$scope'
                     try{
                         
                         var iconURL =  "http://openweathermap.org/img/wn/"+$scope.weatherData.weather[0].icon+"@2x.png"
-                        console.log(iconURL)
+                        // console.log(iconURL)
                         // console.log($scope.weatherData) 
                         var Items = {item:[$scope.weatherData.name,$scope.weatherData.main.temp, iconURL, $scope.weatherData.weather[0].main]}
-                        console.log(Items)
+                        // console.log(Items)
                     // /console.log($scope.weatherData.data[0].city_name, $scope.weatherData.data[0].app_temp)
                         $scope.TempList.push(Items)
                     }
@@ -81,25 +82,25 @@ angular.module('weatherApplication').controller('WeatherAppController',['$scope'
             }
 
         }
-        $scope.getcity = function(country){
-            $scope.abhi=[];
-            try{
-                WeatherAppService.post(country)
-                .then(data => {
-                    data.data.forEach(function(post){
-                        // console.log(post,"----")
-                        $scope.abhi.push(post);
-                        console.log("man   ::: "+$scope.abhi); 
-                    }) ;
-                })
-                .catch(err => console.log(err));
-            }
-            catch(e){
-                console.log(e)
-                $scope.error = true;
-            }
 
-           
-        }
+        //function which can be used to get the list of cities in a country
+        // $scope.getcity = function(country){
+        //     $scope.cities=[];
+        //     try{
+        //         WeatherAppService.post(country)
+        //         .then(data => {
+        //             data.data.forEach(function(post){
+        //                 // console.log(post,"----")
+        //                 $scope.cities.push(post);
+        //                 console.log("man   ::: "+$scope.cities); 
+        //             }) ;
+        //         })
+        //         .catch(err => console.log(err));
+        //     }
+        //     catch(e){
+        //         console.log(e)
+        //         $scope.error = true;
+        //     }
+        // }
 
 }])

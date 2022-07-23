@@ -1,6 +1,7 @@
 .header{
     justify-content: center;
     display: flex;
+    align-items: center;
     background-color: #86abe6;
     height: 72px;
     padding-top: 10px;
@@ -49,11 +50,13 @@
 }
 .state{
     margin: 14px;
-    height: 84px;
+    height: 106px;
     border-radius: 5px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    padding-top: 10px;
+    padding-bottom: 10px;
     align-items: center;
     background: #a29292;
     color: #370606;
@@ -64,6 +67,7 @@
     flex-direction: column;   
 }
 .heading{
+        margin-left: 5px;
         font-size: 33px;
         font-family: none;
         color: ghostwhite;

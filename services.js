@@ -7,7 +7,7 @@ function($http, $q){
         post:post
     };
     return WeatherAppService
-
+    //function to get weather data
     function getWeather(city){
         var baseURL = "https://api.openweathermap.org/data/2.5/weather?q="+city+"&appid=bf0b89712c52d65d5351033913e3d2e0&units=metric"
         // var baseURL = "https://api.weatherbit.io/v2.0/current?city="+city+"&country="+country+"&key=25ddacfe8f8a405aac37bad9066da07d"
