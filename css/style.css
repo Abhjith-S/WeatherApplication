@@ -102,3 +102,9 @@
 .country:hover{
     transform: translate(2px, 2px);  
 }
+
+@media (min-width: 1000px) and (max-width: 1090px) {
+    .Weathericons{
+        width: 60px;
+    }
+}

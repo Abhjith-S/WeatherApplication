@@ -34,7 +34,7 @@
                     <div class=" stateCon col-lg-10 col-md-10 col-sm-10 col-xs-10">
                         <div ng-hide = 'error'class = 'state col-lg-3 col-md-3 col-sm-3 col-xs-3' ng-repeat = 'item in TempList track by $index'>
                             <div class="display-col"><span class="city">{{item.item[0]}}</span><span>{{item.item[1]}}°c</span><span>{{item.item[3]}}</span></div>
-                            <img src="{{item.item[2]}}" alt ='no img'/>  
+                            <img class="Weathericons" src="{{item.item[2]}}" alt ='no img'/>  
                         </div>
                         <div class = 'texts texts-start' ng-show="error">We are currently facing some issue<br>Please Try again later</div>
                     </div>
